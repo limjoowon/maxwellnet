@@ -1,0 +1,32 @@
+{
+  "Description": [
+    "This experiment learns to solve the Maxwell's equations",
+    "for a spheric lens data."
+  ],
+  "NetworkArch": "maxwellnet",
+  "NetworkSpecs": {
+    "depth": 6,
+    "filter": 32,
+    "norm": "weight",
+    "up_mode": "upconv"
+  },
+  "PhysicalSpecs": {
+    "wavelength": 1,
+    "dpl": 20,
+    "Nx": 160,
+    "Nz": 192,
+    "pml_thickness": 30,
+    "symmetry_x": true,
+    "mode": "tm",
+    "high_order": "fourth"
+  },
+  "Seed": 2,
+  "LearningRate": 0.0005,
+  "LearningRateDecay": 0.5,
+  "LearningRateDecayStep": 50000,
+  "Epochs": 250000,
+  "BatchSize": 1,
+  "SnapshotFrequency":  50000,
+  "TensorboardFrequency": 100
+}
+

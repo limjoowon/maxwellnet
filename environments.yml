@@ -1,0 +1,16 @@
+name: maxwellnet
+channels:
+  - defaults
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.7.0
+  - nvidia::cudatoolkit=11.0
+  - pytorch::pytorch=1.7.1
+  - torchvision=0.8.2
+  - scikit-image=0.19.2
+  - jupyter=1.0.0
+  - matplotlib=3.5.1
+  - tensorboard=2.0.0
+  - pip:
+    - plyfile==0.7.4
