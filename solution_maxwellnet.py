@@ -34,7 +34,7 @@ def main(args):
     ri = np.load(os.path.join(args.directory,
                  args.sample_filename))['n']
 
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu')
     model_directory = os.path.join(args.directory, 'model')
     model_dict = torch.load(os.path.join(
         model_directory, args.model_filename))
