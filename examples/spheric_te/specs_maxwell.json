@@ -7,7 +7,7 @@
   "NetworkSpecs": {
     "depth": 6,
     "filter": 16,
-    "norm": "weight",
+    "norm": "batch",
     "up_mode": "upconv"
   },
   "PhysicalSpecs": {
