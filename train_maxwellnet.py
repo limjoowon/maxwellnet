@@ -40,7 +40,9 @@ def main(directory, load_ckpt):
         fix_seed(seed_number, torch.cuda.is_available())
 
     rank = 0
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu')
+    logging.info("Device: " + str(device))
 
     logging.info("Experiment description: \n" +
                  ' '.join([str(elem) for elem in specs["Description"]]))
@@ -264,11 +266,11 @@ def fix_seed(seed, is_cuda):
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
-    if is_cuda:
-        torch.cuda.manual_seed(seed)
-        torch.cuda.manual_seed_all(seed)
-        cudnn.benchmark = False
-        cudnn.deterministic = True
+    # if is_cuda:
+    #     torch.cuda.manual_seed(seed)
+    #     torch.cuda.manual_seed_all(seed)
+    #     cudnn.benchmark = False
+    #     cudnn.deterministic = True
 
 
 def get_spec_with_default(specs, key, default):
